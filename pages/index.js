@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
 
+
 export default function Home() {
   const [columns, setColumns] = useState([]);
   const [record, setRecord] = useState([]);
@@ -69,6 +70,7 @@ export default function Home() {
                           <Link href={`/update/${row.id}`} className="text-indigo-600 hover:text-indigo-900">
                             Update
                           </Link>
+
                           <button onClick={(e) => handleDelete(row.id)} className="ml-4 text-red-600 hover:text-red-900">
                             Delete
                           </button>
@@ -81,6 +83,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+        
       </div>
     </>
   );
