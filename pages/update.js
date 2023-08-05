@@ -1,20 +1,22 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 const Update = () => {
-  const {id}=useParams();
+  const router = useRouter();
+  const { id } = router.query;
   const [data, setData] = useState([]);
+
   useEffect(() => {
     axios
-      .get('http://localhost:4000/users/'+id)
+      .get("http://localhost:4000/users/" + id)
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [id]);
 
   const handleUpdate = (event) => {
     event.preventDefault();
-    axios.put('http://localhost:4000/users/'+id, data).then((res) => {
+    axios.put("http://localhost:4000/users/" + id, data).then((res) => {
       alert("update successfully !");
     });
   };
