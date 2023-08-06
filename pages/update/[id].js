@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 const Update = () => {
+  // Dynamic Routes
   const router = useRouter();
-  const { id } = router.query;
+  const { id } = router.query;  //variable that palce in {} must equal by name of [FolderName].js ====>  {id} equal by [id].js
   const [data, setData] = useState([]);
 
   useEffect(() => {
