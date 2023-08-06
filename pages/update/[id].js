@@ -18,12 +18,13 @@ const Update = () => {
     event.preventDefault();
     axios.put(`http://localhost:4000/users/${id}`, data).then((res) => {
       alert("update successfully !");
+      router.push("/");
     });
   };
 
   return (
     <form className="w-full max-w-md mx-auto mt-8">
-      <div className="shadow-md rounded-md p-4">
+      <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-sm mx-auto mt-8">
         <div className="mb-6">
           <label className="block text-gray-700 font-bold mb-2" htmlFor="name">
             Name
@@ -51,7 +52,7 @@ const Update = () => {
       </div>
       <div className="flex justify-center mt-4">
         <button
-          className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="bg-green-300 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           type="submit"
           onClick={handleUpdate}
         >

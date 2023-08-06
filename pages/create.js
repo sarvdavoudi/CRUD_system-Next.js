@@ -42,14 +42,14 @@ const Create = () => {
           onChange={(e) => setInputData({ ...inputData, email: e.target.value })}
         />
       </div>
-      <div className="flex items-center justify-center">  
-          <button
-            className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            type="submit"
-            onClick={handleSubmit}
-          >
-            Submit
-          </button>
+      <div className="flex items-center justify-center">
+        <button
+          className="bg-pink-600 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="submit"
+          onClick={handleSubmit}
+        >
+          Submit
+        </button>
       </div>
     </form>
   );

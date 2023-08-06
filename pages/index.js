@@ -2,12 +2,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
 
-
 export default function Home() {
   const [columns, setColumns] = useState([]);
   const [record, setRecord] = useState([]);
   const [refresh, setRefresh] = useState([]);
-
 
   useEffect(() => {
     axios
@@ -29,8 +27,7 @@ export default function Home() {
         .delete(`http://localhost:4000/users/${id}`)
         .then((res) => {
           alert("Record has been deleted!");
-          setRefresh(refresh+1)
-         
+          setRefresh(refresh + 1);
         })
         .catch((err) => console.log(err));
     }
@@ -67,11 +64,14 @@ export default function Home() {
                         <td className="px-6 py-4 whitespace-nowrap">{row.name}</td>
                         <td className="px-6 py-4 whitespace-nowrap">{row.email}</td>
                         <td className="px-6 py-4 whitespace-nowrap">
-                          <Link href={`/update/${row.id}`} className="text-indigo-600 hover:text-indigo-900">
+                          <Link href={`/update/${row.id}`} className="text-white -900 hover:bg-green-700 bg-green-300 px-4 py-2 rounded">
                             Update
                           </Link>
 
-                          <button onClick={(e) => handleDelete(row.id)} className="ml-4 text-red-600 hover:text-red-900">
+                          <button
+                            onClick={(e) => handleDelete(row.id)}
+                            className="ml-4 text-white -900  hover:bg-red-800 bg-red-300 px-4 py-2 rounded "
+                          >
                             Delete
                           </button>
                         </td>
@@ -83,7 +83,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-        
       </div>
     </>
   );
