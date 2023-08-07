@@ -9,7 +9,7 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/users")
+      .get("http://crud-next-js-axios.vercel.app/users/${id}")
       .then((response) => {
         const data = response.data;
         setColumns(Object.keys(data[0]));
