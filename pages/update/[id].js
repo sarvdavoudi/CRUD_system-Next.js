@@ -10,14 +10,14 @@ const Update = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.API_URL}/users/${id}`)
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/users/${id}`)
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, [id]);
 
   const handleUpdate = (event) => {
     event.preventDefault();
-    axios.put(`${process.env.API_URL}/users/${id}`, data).then((res) => {
+    axios.put(`${process.env.NEXT_PUBLIC_API_URL}/users/${id}`, data).then((res) => {
       alert("update successfully !");
       router.push("/");
     });

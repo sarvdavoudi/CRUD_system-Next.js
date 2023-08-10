@@ -10,7 +10,7 @@ const Create = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`${process.env.API_URL}/users`, inputData)
+      .post(`${process.env.NEXT_PUBLIC_API_URL}/users`, inputData)
       .then((res) => {
         alert("data added successfully");
         router.push("/");

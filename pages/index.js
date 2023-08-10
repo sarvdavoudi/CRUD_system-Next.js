@@ -8,23 +8,25 @@ export default function Home() {
   const [refresh, setRefresh] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(`${process.env.API_URL}/users`)
-      .then((response) => {
+     const fetchData = async () => {
+      try {
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users`);
         const data = response.data;
         setColumns(Object.keys(data[0]));
         setRecord(data);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.log(error);
-      });
+      }
+    };
+
+    fetchData();
   }, [refresh]);
 
   const handleDelete = (id) => {
     const conf = window.confirm("Are you sure want to delete?");
     if (conf) {
       axios
-        .delete(`${process.env.API_URL}/users/${id}`)
+        .delete(`${process.env.NEXT_PUBLIC_API_URL}/users/${id}`)
         .then((res) => {
           alert("Record has been deleted!");
           setRefresh(refresh + 1);
