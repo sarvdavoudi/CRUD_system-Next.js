@@ -9,7 +9,7 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/users")
+      .get(`${process.env.API_URL}/users`)
       .then((response) => {
         const data = response.data;
         setColumns(Object.keys(data[0]));
@@ -24,7 +24,7 @@ export default function Home() {
     const conf = window.confirm("Are you sure want to delete?");
     if (conf) {
       axios
-        .delete(`http://localhost:4000/users/${id}`)
+        .delete(`${process.env.API_URL}/users/${id}`)
         .then((res) => {
           alert("Record has been deleted!");
           setRefresh(refresh + 1);
