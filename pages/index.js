@@ -8,9 +8,9 @@ export default function Home() {
   const [refresh, setRefresh] = useState([]);
 
   useEffect(() => {
-     const fetchData = async () => {
+    const fetchData = async () => {
       try {
-        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users`);
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users`); //"environment variable" used for APi url
         const data = response.data;
         setColumns(Object.keys(data[0]));
         setRecord(data);
